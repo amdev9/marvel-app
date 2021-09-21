@@ -1,13 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Layout from "../components/Layout";
-import { IHero, IState } from '../types';
+import { IHero, IState, RouteParams } from "../types";
+import { useParams } from "react-router-dom";
 
-export default function Hero(props: any) {
+const Hero = () => {
+  const params = useParams<RouteParams>();
   const heroes = useSelector((state: IState) => state.heroes);
-  const items: IHero[] = heroes
-    .filter((hero) => hero.id === props.match.params.id)
-  const item: IHero | undefined = items.shift()
+  const items: IHero[] = heroes.filter((hero) => hero.id === params.id);
+  const item: IHero | undefined = items.shift();
 
   return (
     <Layout>
@@ -16,4 +17,6 @@ export default function Hero(props: any) {
       <p>{item?.description}</p>
     </Layout>
   );
-}
+};
+
+export default Hero;
