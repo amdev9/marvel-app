@@ -1,4 +1,6 @@
-export const saveState = (state) => {
+import { IState } from "../types";
+
+export const saveState = (state: IState) => {
   try {
     const serializedState = JSON.stringify(state.heroes);
     localStorage.setItem("state", serializedState);

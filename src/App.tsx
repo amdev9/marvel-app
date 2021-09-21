@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Heroes from "./components/Heroes";
-import Hero from "./components/Hero";
+import Hero from "./containers/Hero";
 import "./App.css";
 
 function App() {

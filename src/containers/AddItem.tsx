@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CREATE_HERO } from "../state/actions";
+import { IHeroUI } from "../types";
 import styles from "./AddItem.module.css";
 
 const AddItem = () => {
-  const initialHeroState = {
-    id: null,
+  const initialHeroState: IHeroUI = {
+    id: '',
     title: "",
     image: "",
     description: "",
@@ -13,10 +14,11 @@ const AddItem = () => {
   };
   const [hero, setHero] = useState(initialHeroState);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const dispatch = useDispatch();
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setHero({ ...hero, [name]: value });
   };
@@ -27,6 +29,7 @@ const AddItem = () => {
     const id = title.replace(/\s+/g, "-").toLowerCase();
     // prevent create empty
     if (!id) {
+      setError("Sorry, title can not be empty")
       return 
     }
     const res = {
@@ -34,6 +37,7 @@ const AddItem = () => {
       title,
       image,
       description,
+      published: false,
     };
 
     setHero(res);
@@ -93,6 +97,7 @@ const AddItem = () => {
           </div>
 
           <button onClick={saveHero}>Submit</button>
+          <div>{error}</div>
         </div>
       )}
     </div>

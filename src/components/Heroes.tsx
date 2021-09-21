@@ -1,10 +1,10 @@
 import React from "react";
-import List from "./List";
-import SearchBar from "./SearchBar";
-import AddItem from "./AddItem";
+import List from "../containers/List";
+import SearchBar from "../containers/SearchBar";
+import AddItem from "../containers/AddItem";
 import Layout from "./Layout";
 
-function Heroes() {
+const Heroes = () => {
   return (
     <Layout>
       <SearchBar />

@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { IItemProps } from "../types";
 
-export default function Item(props) {
+
+const Item: React.FC<IItemProps> = (props: IItemProps) => {
   const { item } = props;
 
   return (
@@ -10,4 +12,6 @@ export default function Item(props) {
       <img src={`${item.image}`} alt={item.title} />
     </Link>
   );
-}
+};
+
+export default Item;

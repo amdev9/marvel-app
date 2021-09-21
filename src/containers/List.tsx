@@ -1,6 +1,8 @@
 import React from "react";
 import { shallowEqual, useSelector } from "react-redux";
-import Item from "./Item";
+import Item from "../components/Item";
+
+import { IState } from "../types";
 
 function PureHeroList() {
   const menuList = useSelector(selectorMenu, shallowEqual);
@@ -14,7 +16,7 @@ function PureHeroList() {
   );
 }
 
-function selectorMenu(state) {
+function selectorMenu(state: IState) {
   if (state.value) {
     return state.works;
   }
