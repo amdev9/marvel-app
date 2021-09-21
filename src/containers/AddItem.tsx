@@ -5,16 +5,18 @@ import { IHeroUI } from "../types";
 import styles from "./AddItem.module.css";
 
 const AddItem = () => {
+  
   const initialHeroState: IHeroUI = {
-    id: '',
+    id: "",
     title: "",
     image: "",
     description: "",
     published: false,
   };
+
   const [hero, setHero] = useState(initialHeroState);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const dispatch = useDispatch();
 
@@ -29,8 +31,8 @@ const AddItem = () => {
     const id = title.replace(/\s+/g, "-").toLowerCase();
     // prevent create empty
     if (!id) {
-      setError("Sorry, title can not be empty")
-      return 
+      setError("Sorry, title can not be empty");
+      return;
     }
     const res = {
       id,
@@ -59,9 +61,7 @@ const AddItem = () => {
       {submitted ? (
         <div>
           <h4>You submitted Hero successfully!</h4>
-          <button onClick={newHero}>
-            Add
-          </button>
+          <button onClick={newHero}>Add</button>
         </div>
       ) : (
         <div className={styles.submitForm}>

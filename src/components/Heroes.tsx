@@ -12,6 +12,6 @@ const Heroes = () => {
       <AddItem />
     </Layout>
   );
-}
+};
 
 export default Heroes;

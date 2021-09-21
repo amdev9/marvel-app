@@ -33,3 +33,7 @@ export interface Action<T, P> {
 export interface RouteParams {
   id: string;
 }
+
+export interface AuxProps {
+  children: React.ReactNode;
+}

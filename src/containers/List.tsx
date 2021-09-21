@@ -8,7 +8,7 @@ function PureHeroList() {
   const menuList = useSelector(selectorMenu, shallowEqual);
 
   return (
-   <div>
+    <div>
       {menuList.map((item) => (
         <Item key={item.id} item={item} />
       ))}

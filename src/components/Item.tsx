@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { IItemProps } from "../types";
 
-
 const Item: React.FC<IItemProps> = (props: IItemProps) => {
   const { item } = props;
 
